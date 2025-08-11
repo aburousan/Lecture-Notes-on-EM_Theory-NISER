@@ -1,30 +1,27 @@
-name: Build and Deploy LaTeX PDF
+name: Build LaTeX document
 
 on:
   push:
-    branches: [ main ]  # Change if your default branch is not main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Install LaTeX
-        run: sudo apt-get update && sudo apt-get install -y texlive-full
-
-      - name: Compile PDF
-        run: |
-          pdflatex -interaction=nonstopmode -halt-on-error main.tex
-          pdflatex -interaction=nonstopmode -halt-on-error main.tex
-          # Run twice for references, TOC, etc.
-
-      - name: Deploy PDF to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - uses: actions/checkout@v4
+      
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .
-          publish_branch: gh-pages
-          keep_files: true
-          allow_empty_commit: false
+          root_file: main.tex
+          latexmk_use_xelatex: true
+          extra_system_packages: >
+            texlive-latex-recommended
+            texlive-latex-extra
+            texlive-fonts-recommended
+            texlive-pictures
+            texlive-science
+            texlive-xetex
+            texlive-bibtex-extra
