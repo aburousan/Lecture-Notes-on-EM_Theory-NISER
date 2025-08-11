@@ -1,42 +1,30 @@
-name: Build LaTeX PDF
+name: Build and Deploy LaTeX PDF
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
+    branches: [ main ]  # Change if your default branch is not main
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      # 1. Checkout the repository
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      # 2. Install TeX Live (basic + extra packages for math/images)
-      - name: Install TeX Live
+      - name: Install LaTeX
+        run: sudo apt-get update && sudo apt-get install -y texlive-full
+
+      - name: Compile PDF
         run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            texlive-latex-base \
-            texlive-latex-extra \
-            texlive-fonts-recommended \
-            texlive-science \
-            texlive-fonts-extra \
-            texlive-luatex \
-            texlive-xetex \
-            latexmk
+          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+          pdflatex -interaction=nonstopmode -halt-on-error main.tex
+          # Run twice for references, TOC, etc.
 
-      # 3. Compile LaTeX with latexmk (always clean first)
-      - name: Compile LaTeX
-        run: |
-          latexmk -C        # Clean old aux files
-          latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
-
-      # 4. Upload the resulting PDF
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
+      - name: Deploy PDF to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          name: lecture-notes
-          path: main.pdf
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
+          keep_files: true
+          allow_empty_commit: false
