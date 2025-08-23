@@ -130,7 +130,7 @@
         \hrule
         \vspace{1cm}
         \Large
-        \textcolor{purple}{\textbf{Instructor : Dr. V Ravi Chandra  \\ Documented \& Edited by : Kazi Abu Rousan}}\\
+        \textcolor{purple}{\textbf{Instructor : Dr. V Ravi Chandra  \\ Documented \& Edited by : Kazi Abu Rousan and Anwesh Panda}}\\
         \vspace{0.5cm}
         \large
         \emph{National Institute of Science Education and Research, Bhubaneswar}\\
@@ -157,14 +157,15 @@
 \newpage
 
 \tableofcontents \thispagesty\dle{empty}
-\pagebreak
+\pagebreak;
+
 %-----------------------------------------------------------------------------------
 \lecture{Review of Electrostatics \& Magneto-statics : Maxwell's Equations}
 \subsection{Motivation of studying Electrodynamics}
 \textbf{Why do we need to learn this topic?}\\
 Why do we learn electrodynamics?, \textbf{To explain some experiment?}, well we don't have to go that way. Just \textbf{look}...\\
 Well, how will you explain this \textbf{looking} or \textbf{seeing}?\\
-The answer this that \textbf{Light} reflects from different objects and then fall into our eyes, which then \textbf{excites} our \textbf{rod} and \textbf{cone} cells. How does this simulation happens?, using \textbf{Electro-Magnetic} simulation, i.e., some type of change in \textbf{voltage} and which changes the \textbf{ions} density or maybe make them move.
+The answer is that \textbf{Light} reflects from different objects and then fall into our eyes, which then \textbf{excites} our \textbf{rod} and \textbf{cone} cells. How does this simulation happens?, using \textbf{Electro-Magnetic} simulation, i.e., some type of change in \textbf{voltage} and which changes the \textbf{ions} density or maybe make them move.
 \begin{figure}[H]
     \centering
     \begin{subfigure}{0.4\textwidth}
@@ -182,8 +183,6 @@ The answer this that \textbf{Light} reflects from different objects and then fal
     \label{fig:EM_example}
 \end{figure}
 
-The heart also works using \textbf{charges}. Assume a \textbf{heart cell}, which are $10$micron in size. The cell contains $-80mV$ inside. The electric field points from outside to inside. Now, from above of the cell, the polarization changes, i.e., upper part has $20mv$ and lower has \textbf{negative charge}, creating a dipole. After some time the cell inside become totally positive. This \textbf{depolarization} waves creates the contraction and expansion of heart.\\
-So, we see, \gls{em} Theory is not just important to understand "\textbf{physical experiments}" but also is important to understand the human body.
 
 The heart also works using \textbf{charges}. Assume a \textbf{heart cell}, which are $10$micron in size. The cell contains $-80mV$ inside. The electric field points from outside to inside. Now, from above of the cell, the polarization changes, i.e., upper part has $20mv$ and lower has \textbf{negative charge}, creating a dipole. After some time the cell inside become totally positive. This \textbf{depolarization} waves creates the contraction and expansion of heart.\\
 So, we see, \textbf{Electromagnetic Theory} is not just important to understand "\textbf{physical experiments}" but also is important to understand the human body.
@@ -244,8 +243,8 @@ Again, using,
 We can get (with $\vec{\nabla}\cdot \vec{J}'=0$),
 \begin{equation*}
     \begin{split}
-        \vec{\nabla}\times \vec{B} = & \frac{\mu_0}{4\pi}\vec{\nabla}\times \int_{\mathcal{V}} \frac{\vec{J}(\vec{r}')\hat{\scriptr}}{\scriptr^2}\, d^3r'\\
-        = &  \frac{\mu_0}{4\pi} \int_{\mathcal{V}} \vec{\nabla}\times \Bigg(\frac{\vec{J}(\vec{r}')\hat{\scriptr}}{\scriptr^2}\Bigg)\, d^3r'\\
+        \vec{\nabla}\times \vec{B} = & \frac{\mu_0}{4\pi}\vec{\nabla}\times \int_{\mathcal{V}} \frac{\vec{J}(\vec{r}')\times\hat{\scriptr}}{\scriptr^2}\, d^3r'\\
+        = &  \frac{\mu_0}{4\pi} \int_{\mathcal{V}} \vec{\nabla}\times \Bigg(\frac{\vec{J}(\vec{r}')\times \hat{\scriptr}}{\scriptr^2}\Bigg)\, d^3r'\\
         = &  \frac{\mu_0}{4\pi} \int_{\mathcal{V}} \Bigg( \vec{J}(\vec{r}') \, \vec{\nabla}\cdot \Bigg(\frac{\hat{\scriptr}}{\scriptr^2}\Bigg) - (\vec{J}(r)\cdot \vec{\nabla})\frac{\hat{\scriptr}}{\scriptr^2}\Bigg)\, d^3r'\\
         = & \frac{\mu_0}{4\pi} \int_{\mathcal{V}} \vec{J}(\vec{r}')4\pi \delta^3(\vec{r}-\vec{r}')\, d^3r' -  \frac{\mu_0}{4\pi} \int_{\mathcal{V}} (\vec{J}(r)\cdot \vec{\nabla})\frac{\hat{\scriptr}}{\scriptr^2}\, d^3r'\\
         = & \mu_0 \vec{J}(\vec{r}) + \frac{\mu_0}{4\pi}\int_{\mathcal{V}}(\vec{J}(\vec{r}')\cdot \vec{\nabla}')\frac{\hat{\scriptr}}{\scriptr^2}\, d^3 r'
@@ -255,8 +254,8 @@ For the second term we have used the fact $\nabla = - \nabla'$. Now, the second 
 \begin{equation*}
     \begin{split}
     \int_{\mathcal{V}}(\vec{J}(\vec{r}')\cdot \vec{\nabla}')\frac{\hat{\scriptr}}{\scriptr^2}\, d^3 r'\Bigg|_\alpha = &  \int_{\mathcal{V}}(\vec{J}(\vec{r}')\cdot \vec{\nabla}')\frac{\hat{\scriptr}_\alpha}{\scriptr^2}\, d^3 r'\Bigg| \\
-    = &  \int_{\mathcal{V}} \Bigg( \vec{\nabla}' \Bigg( \frac{\hat{\scriptr}_\alpha}{\scriptr^2} \vec{J}(\vec{r}')\Bigg) - \Bigg( \frac{\hat{\scriptr}_\alpha}{\scriptr^2}\Bigg) \vec{\nabla}'\cdot\vec{J}(\vec{r}') \Bigg)\, d^3r'\\
-    = & \int_{\mathcal{V}} \Bigg( \vec{\nabla}' \Bigg( \frac{\hat{\scriptr}_\alpha}{\scriptr^2} \vec{J}(\vec{r}')\Bigg)\, d^3r'\\
+    = &  \int_{\mathcal{V}} \Bigg( \vec{\nabla}' \Bigg( \frac{\hat{\scriptr}_\alpha}{\scriptr^2}\cdot \vec{J}(\vec{r}')\Bigg) - \Bigg( \frac{\hat{\scriptr}_\alpha}{\scriptr^2}\Bigg) \vec{\nabla}'\cdot\vec{J}(\vec{r}') \Bigg)\, d^3r'\\
+    = & \int_{\mathcal{V}} \Bigg( \vec{\nabla}' \Bigg( \frac{\hat{\scriptr}_\alpha}{\scriptr^2} \cdot\vec{J}(\vec{r}')\Bigg)\, d^3r'\\
     = & \int_{\partial \mathcal{V}}\Bigg( \frac{\hat{\scriptr}_\alpha}{\scriptr^2}\vec{J}(\vec{r}')\cdot \hat{n} \Bigg)\, d^2r'
     \end{split}
 \end{equation*}
@@ -355,7 +354,7 @@ Because their divergences are same, we will have,
 \begin{equation}
     \begin{split}
         \nabla \cdot \vec{F}' =& 0\\
-        \to \nabla\times \nabla (\times \vec{F}') =& 0\\
+        \to \nabla\times(\nabla \times \vec{F}') =& 0\\
         \to -\nabla^2 \vec{F}' =& 0
     \end{split}
 \end{equation}
@@ -385,7 +384,7 @@ We know what's the value of magnetic field due to solenoid and most of us have s
 
 For a steady current distribution $\vec{J}$ flowing along a curve \(C\), the magnetic field at position $\vec{r}$ is gievn by,
 \begin{equation}
-\vec{B}(\vec{r})=\frac{\mu_0 I}{4\pi}\int \frac{\vec{J}\times \vec{\scriptr}}{\scriptr^2} \, d^3 r' = \frac{\mu_0 I}{4\pi}\int \frac{\vec{K}\times \vec{\scriptr}}{\scriptr^2}\, d^2 r'
+\vec{B}(\vec{r})=\frac{\mu_0 I}{4\pi}\int \frac{\vec{J}\times \vec{\scriptr}}{\scriptr^3} \, d^3 r' = \frac{\mu_0 I}{4\pi}\int \frac{\vec{K}\times \vec{\scriptr}}{\scriptr^3}\, d^2 r'
 \end{equation}
 Now the current in a solenoid is on the surface as wires goes on that, as a result we can consider $\vec{K}$ and it can be given by $\vec{K}= -K \sin(\theta)\hat{x} + K \cos(\theta)\hat{y}$. Similarly, $\vec{\scriptr}$ can be written as,
 \begin{equation*}
@@ -396,11 +395,22 @@ Now the current in a solenoid is on the surface as wires goes on that, as a resu
 \end{equation*}
 where $(x,y,0)$, i.e., we want to find the magnetic field on the x-y plane. \textbf{Due to the infinite length of the solenoid we can choose our x-y plane anywhere, hence $z$ coordinate is not needed}.
 \begin{figure}[H]
-\centering
-\includegraphics[width=0.3\textwidth]{Images/infinite_sol1.jpeg}
-\caption{}
-\label{sol_pb1}
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=0.6\textwidth]{Images/infinite_sol1.jpeg}
+        \caption{}
+        \label{sol_pb1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.45\textwidth}
+        \includegraphics[width=1\textwidth]{Images/solenoid_plot_py.png}
+        \caption{Comparison of numerical Integration and final form}
+        \label{sol_com_inf}
+    \end{subfigure}
+    \caption{}
+    \label{fig:sol_inf}
 \end{figure}
+
 Using this, 
 \begin{equation*}
     \vec{K}\times \vec{\scriptr} = K \cos(\theta)\, z' \hat{x} - K \sin(\theta)\, z' \hat{y} + (K\sin(\theta)(R\sin(\theta)-y)+K\cos(\theta)(R\cos(\theta)-x))\hat{z}
@@ -411,9 +421,75 @@ The differential area,
 \end{equation*}
 Hence, we have,
 \begin{equation}
-    B_z = \frac{\mu_0}{4\pi}\int_{\infty}^{\infty}\frac{(K\sin(\theta)(R\sin(\theta)-y)+K\cos(\theta)(R\cos(\theta)-x))}{[(x-R\cos(\theta)^2+(y-R\sin(\theta))^2+ z'^2)]}R\, d\theta dz'
+    B_z(x,y) = \frac{\mu_0}{4\pi}\int_{0}^{2\pi}\int_{-\infty}^{\infty}\frac{(K\sin(\theta)(R\sin(\theta)-y)+K\cos(\theta)(R\cos(\theta)-x))}{[(x-R\cos(\theta)^2+(y-R\sin(\theta))^2+ z'^2)]^{3/2}}R\, d\theta dz'
 \end{equation}
-There will be no $B_x$ and $B_y$ as the integrations are odd in $x$ and $y$ for those.
+There will be no $B_x$ and $B_y$ as the integrations are odd in $x$ and $y$ for those. Now, let's do this integration:
+\begin{equation}
+    \begin{split}
+    B_z =& \frac{\mu_0K}{4\pi}\int_{0}^{2\pi}\int_{-\infty}^{\infty}\frac{(R\sin^2(\theta)-y\sin(\theta)+R\cos^2(\theta)-x\cos(\theta))}{[x^2-2xR\cos(\theta)+R^2\cos^2(\theta)+y^2-2yR\sin(\theta)+\sin^2(\theta)R^2+z'^2]^{3/2}}R\, d\theta dz'\\
+    =& \frac{\mu_0K}{4\pi}\int_{0}^{2\pi}\int_{-\infty}^{\infty}\frac{(R-y\sin(\theta)-x\cos(\theta))}{[x^2+y^2+R^2+z'^2-2R(x\cos(\theta)+y\sin(\theta))]^{3/2}}R\, d\theta dz'
+    \end{split}
+\end{equation}
+Let's first do the $z'$ integration first.
+\begin{equation*}
+    \begin{split}
+        I_z =& \int_{-\infty}^{\infty}\frac{(R-(y\sin(\theta)+x\cos(\theta)))}{[x^2+y^2+R^2-2R(x\cos(\theta)+y\sin(\theta))+z'^2]^{3/2}}\, dz'\\
+        =& (R-(x\cos(\theta)+y\sin(\theta)))\int_{-\infty}^{\infty}\frac{dz'}{[x^2+y^2+R^2-2R(x\cos(\theta)+y\sin(\theta))+z'^2]^{3/2}}\\
+        =& (R-(x\cos(\theta)+y\sin(\theta)))\int_{-\infty}^{\infty}\frac{dz'}{[x^2+y^2+R^2-2R(x\cos(\theta)+y\sin(\theta))+z'^2]^{3/2}}\\
+        =& (R-(x\cos(\theta)+y\sin(\theta)))\int_{-\infty}^{\infty}\frac{dz'}{[\lambda^2+z'^2]^{3/2}} \, \, ; \,(\lambda^2=x^2+y^2+R^2-2R(x\cos(\theta)+y\sin(\theta)))\\
+        =& (R-(x\cos(\theta)+y\sin(\theta)))\int_{-\pi/2}^{\pi/2}\frac{\lambda\, \sec^2(\alpha)\, d\alpha}{[\lambda^2+\lambda^2 \tan^2(\alpha)]^{3/2}}\, ; \, (z'=\lambda \tan(\alpha))\\
+        =& (R-(x\cos(\theta)+y\sin(\theta)))\frac{2}{\lambda^2} = \frac{2 (R-(x\cos(\theta)+y\sin(\theta))}{[x^2+y^2+R^2-2R(x\cos(\theta)+y\sin(\theta))]}
+    \end{split}
+\end{equation*}
+Here taking $x=Q\cos(\phi)$ and $y = Q\sin(\phi)$, This gives,
+\begin{equation*}
+    \begin{split}
+        B_z =& \frac{\mu_0 R K}{2\pi}\int_0^{2\pi}\frac{R-Q(\cos(\theta)\cos(\phi)+\sin(\theta)\sin(\phi))}{[R^2+Q^2-2R\, Q\, (\cos(\theta)\cos(\phi)+\sin(\theta)\sin(\phi))]}\, d\theta\\
+        =& \frac{\mu_0 R K}{2\pi}\int_0^{2\pi}\frac{R-Q\cos(\theta-\phi)}{[R^2+Q^2-2R\, Q\, (\cos(\theta-\phi)]}\, d\theta\\
+    \end{split}
+\end{equation*}
+We will remove the phase,
+\begin{equation*}
+    \begin{split}
+        \int_{0}^{2\pi}f(\theta)\, d\theta =&\int_{0}^{2\pi}\frac{R-Q\cos(\theta-\phi)}{[R^2+Q^2-2R\, Q\, (\cos(\theta-\phi)]}\, d\theta\\
+        \implies \int_{-\phi}^{2\pi-\phi}f(t)\, dt =& \int_{-\phi}^{2\pi-\phi}\frac{R-Q\cos(t)}{[R^2+Q^2-2R\, Q\, (\cos(t)]} \, dt\\
+        \implies \int_{-\phi}^{2\pi-\phi}f(t)\, dt =& \int_{0}^{2\pi}f(t)\, dt
+    \end{split}
+\end{equation*}
+This can be done as although the limits become $[-\phi, 2\pi-\phi]$, this interval has length $2\pi$. Because the contour is the circle of radius $1$ and $f$ is periodic with period $2\pi$, the integral doesn't depend on where the interval starts.
+\begin{equation*}
+    \begin{split}
+        B_z =& \frac{\mu_0RK}{2\pi}\int_{0}^{2\pi}\frac{R-Q\cos(t)}{[R^2+Q^2-2R\, Q\, (\cos(t)]} \, dt\\
+        =& \frac{\mu_0RK}{2\pi}\oint_{|z|=1}\frac{R-\frac{Q}{2}(z+z^{-1})}{[R^2+Q^2-R\, Q\, (z+z^{-1})]} \, \frac{dz}{i z}\\
+        =& \frac{\mu_0RK}{2\pi}\oint_{|z|=1}\frac{Rz-\frac{Q}{2}(z^2+1)}{i\,z[(R-Qz)(Rz-Q)]} \, dz
+    \end{split}
+\end{equation*}
+The poles are at $z=0$, $z=R/Q$ and $z=Q/R$. We can now take take $f(z)$ as,
+\begin{equation*}
+    f(z) = \frac{Rz-\frac{Q}{2}(z^2+1)}{i\,z[(R-Qz)(Rz-Q)]}
+\end{equation*}
+This has isolated singularities. So, we can now use residue theorem for contour integration.  Among the poles which lie inside $|z|=1$ depends on whether $Q<R$ or $Q>R$.
+At $z=0$, 
+\begin{equation*}
+    Res(f,0) = \lim_{z\to 0}zf(z)=\frac{-Q/2}{i\,R\,(-Q)}=\frac{1}{2iR}
+\end{equation*}
+At $z=Q/R$ (inside the contour if $Q<R$):
+\begin{equation*}
+    Res(f, \frac{Q}{R}) = \frac{Rz - \frac{Q}{2}(z^2+1)}{iz(R-Qz)R}\Bigg|_{z=Q/R} = \frac{1}{2iR}
+\end{equation*}
+At $z=R/Q$ (inside the contour if $Q>R$):
+\begin{equation*}
+    Res(f, \frac{R}{Q}) = \frac{Rz - \frac{Q}{2}(z^2+1)}{iz(Rz-Q)(-Q)}\Bigg|_{z=R/Q} = -\frac{1}{2iR}
+\end{equation*}
+If $Q>R$, the inside poles are $z=0$ and $z=Q/R$. In this case,
+\begin{equation*}
+    B_z=\frac{\mu_0 R K}{2\pi}(2\pi i) \Bigg( \frac{1}{2iR}+\frac{1}{2iR} \Bigg) = \mu_o K
+\end{equation*}
+If $Q<R$, the inside poles are $z=0$ and $z=R/Q$. In this case,
+\begin{equation*}
+    B_z=\frac{\mu_0 R K}{2\pi}(2\pi i) \Bigg( \frac{1}{2iR}-\frac{1}{2iR} \Bigg) =0
+\end{equation*}
+If $Q=R$, the integrand has a non-integrable singularity (denominator $\propto (1-\cos(t))$. Hence, $B_z$ diverges. 
 This if done (with contour integration) will gives us,
 \begin{equation}
 \begin{split}
@@ -421,6 +497,7 @@ This if done (with contour integration) will gives us,
     &= 0 \, \, \text{outside}
 \end{split}
 \end{equation}
+See Fig-\ref{sol_com_inf} for the comparison between final result and the integration.
 \subsection{Potentials}
 Will update later
 \lecture{Green's Theorem and Integral form of Potential}
